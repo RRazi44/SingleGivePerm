@@ -43,35 +43,22 @@ The plugin provides two main commands for managing permissions.
 #### Syntax
 
 - ``/giveperm <player> <permission>``
-
 - ``/removeperm <player> <permission>``
 
-- 
 
 #### Permission Nodes:
 
 - ``singlegiveperm.commands.giveperm``
-
 - ``singlegiveperm.commands.removeperm``
-
-
 
 #### Examples:
 
 - **To give a player the permission for /home:**
-  
   `/giveperm RRazi44 essentials.home`
-  
   This will grant the player "RRazi44" the ability to use the `/home` command.
 
-
-
 - To remove the permission from a player:
-  
   ``/removeperm RRazi44 essentials.home``
-  
   This will remove the previously granted permission from the player "RRazi44".
-
-
 
 **Important:** Always use the in-game commands to manage permissions. Manually editing the file while the server is running may lead to data loss or errors.
