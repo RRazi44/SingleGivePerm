@@ -1,0 +1,14 @@
+name: SingleGivePerm
+version: 1.0
+author: Razi
+main: fr.razi.SingleGivePerm
+commands:
+  giveperm:
+    description: This command allow you to add a permission to a target player.
+    permission: singlegiveperm.commands.giveperm
+    usage: /giveperm <Player> <Permission>
+  removeperm:
+    description: This command allow you to remove a permission to a target player added by this plugin.
+    permission: singlegiveperm.commands.giveperm
+    usage: /removeperm <Player> <Permission>
+  
