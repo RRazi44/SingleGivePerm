@@ -24,34 +24,31 @@ This guide will walk you through the commands and configurations of the SingleGi
 
 
 
-##### Installation
+## Installation
 
 1. Download the latest version of the plugin from [here.](https://github.com/RRazi44/SingleGivePerm/releases/download/1.0/SingleGivePerm-1.0.jar)
-
 2. Place the .jar file in your server's /plugins folder.
-
 3. Restart or reload your server.
 
 
-
-#### Commands
+## Commands
 
 The plugin provides two main commands for managing permissions.
 
 
 
-#### Syntax
+## Syntax
 
 - ``/giveperm <player> <permission>``
 - ``/removeperm <player> <permission>``
 
 
-#### Permission Nodes:
+## Permission Nodes:
 
 - ``singlegiveperm.commands.giveperm``
 - ``singlegiveperm.commands.removeperm``
 
-#### Examples:
+## Examples:
 
 - **To give a player the permission for /home:**
   `/giveperm RRazi44 essentials.home`
