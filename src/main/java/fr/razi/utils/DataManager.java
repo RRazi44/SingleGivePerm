@@ -1,13 +1,12 @@
 package fr.razi.utils;
 
+import fr.razi.config.MessageConfig;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.io.IOException;
-
-import static fr.razi.SingleGivePerm.PREFIX;
 
 public class DataManager {
 
@@ -30,9 +29,9 @@ public class DataManager {
 
         if (!dataFile.exists()) {
             try {
-                if(dataFile.createNewFile()) plugin.getLogger().info(PREFIX + "File created.");
+                if(dataFile.createNewFile()) plugin.getLogger().info(MessageConfig.prefix + "File created.");
             } catch (IOException e) {
-                plugin.getLogger().severe(PREFIX + "Impossible to create the data.yml file.");
+                plugin.getLogger().severe(MessageConfig.prefix + "Impossible to create the data.yml file.");
             }
         }
 

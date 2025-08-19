@@ -1,0 +1,6 @@
+messages:
+  prefix: "§8[§eSingleGivePerm§8]§r"
+  player-not-found: "§cPlayer not found!"
+  usage: "§cUsage: /{label} <player> <permission>"
+  permission-given: "§aPermission given to {PlayerName}"
+  permission-removed: "§aPermission removed to {PlayerName}"
