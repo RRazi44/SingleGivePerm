@@ -1,21 +1,18 @@
 package fr.razi.commands;
 
-import fr.razi.SingleGivePerm;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
-import org.bukkit.command.CommandSender;
+import fr.razi.utils.PermissionManager;
+import org.bukkit.entity.Player;
 
-public class commandGivePerm implements CommandExecutor {
+public class commandGivePerm extends AbstractPermissionCommand {
 
-    private final SingleGivePerm instance;
-
-    public commandGivePerm(SingleGivePerm singleGivePerm) {
-        instance = singleGivePerm;
+    public commandGivePerm() {
+        super(true);
     }
 
     @Override
-    public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
-        return false;
+    protected void applyPermission(Player targetPlayer, String permission, boolean give) {
+        PermissionManager.setInGamePermission(targetPlayer, permission, isGive());
+        PermissionManager.setConfigPermission(targetPlayer.getUniqueId(), permission, isGive());
     }
 
 }

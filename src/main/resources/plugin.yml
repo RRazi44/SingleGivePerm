@@ -11,4 +11,8 @@ commands:
     description: This command allow you to remove a permission to a target player added by this plugin.
     permission: singlegiveperm.commands.giveperm
     usage: /removeperm <Player> <Permission>
-  
+permissions:
+  singlegiveperm.commands.giveperm:
+    default: op
+  singlegiveperm.commands.removeperm:
+    default: op
