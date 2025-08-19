@@ -17,11 +17,10 @@ public class PermissionManager {
     private static final String ROOT = "Permissions";
     private static SingleGivePerm instance = null;
 
-    private static Map<UUID, PermissionAttachment> attachmentMap = new HashMap<>();
+    private static final Map<UUID, PermissionAttachment> attachmentMap = new HashMap<>();
 
     public static void setInstance(SingleGivePerm singleGivePerm){
         instance = singleGivePerm;
-        instance.saveConfig();
     }
 
     public static String node(UUID uniqueId){
@@ -44,7 +43,7 @@ public class PermissionManager {
     }
 
     public static void addConfigPermission(String permission, UUID uniqueId){
-        final FileConfiguration config = instance.getConfig();
+        final FileConfiguration config = instance.getDataManager().getConfig();
         List<String> listPermission = config.getStringList(node(uniqueId));
         if(listPermission == null) listPermission = new ArrayList<>();
         if(contains(listPermission,permission)) return;
@@ -52,11 +51,11 @@ public class PermissionManager {
         listPermission.add(permission);
 
         config.set(node(uniqueId), listPermission);
-        instance.saveConfig();
+        instance.getDataManager().saveConfig();
     }
 
     public static void removeConfigPermission(String permission, UUID uniqueId){
-        final FileConfiguration config = instance.getConfig();
+        final FileConfiguration config = instance.getDataManager().getConfig();
         List<String> listPermission = config.getStringList(node(uniqueId));
         if(listPermission == null || listPermission.isEmpty()) return;
         if(!contains(listPermission, permission)) return;
@@ -64,16 +63,11 @@ public class PermissionManager {
         listPermission.removeIf(perm -> perm.equalsIgnoreCase(permission));
 
         config.set(node(uniqueId), listPermission);
-        instance.saveConfig();
-    }
-
-
-    public static boolean hasPermissionOnConfig(UUID uniqueId, String permission){
-        return contains(instance.getConfig().getStringList(node(uniqueId)), permission);
+        instance.getDataManager().saveConfig();
     }
 
     public static void applyAllFromConfig(Player player) {
-        final FileConfiguration config = instance.getConfig();
+        final FileConfiguration config = instance.getDataManager().getConfig();
         List<String> listPermission = config.getStringList(node(player.getUniqueId()));
         PermissionAttachment permissionAttachment = attachmentMap.get(player.getUniqueId());
         if(permissionAttachment == null){
